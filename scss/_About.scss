@@ -1,0 +1,109 @@
+.about {
+   position: relative;
+   &::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      background: url(../IMG/About/bg.png) 0 0 / 100% no-repeat;
+      opacity: 0.125;
+      filter: blur(1px);
+   }
+   &__container {
+      padding: 88px 15px 248px;
+      display: flex;
+      flex-direction: column;
+      @include adClamp("gap", 79, 25);
+      @include adClamp("padding-top", 171, 70);
+      @include adClamp("padding-bottom", 248, 140);
+   }
+
+   &__body {
+      display: flex;
+      align-items: center;
+      @include adClamp("gap", 115, 25);
+      @media(max-width:911.98px){
+         flex-direction: column-reverse;
+         align-items: start;
+      }
+   }
+
+   &__image {
+      @include adClamp("padding", 19, 6, 1920, 991);
+      @include adClamp("margin-left", -19, 0, 1920, 991);
+      border: 1px solid #9D875C;
+      img{
+         max-width: 100%;
+      }
+      flex: 0 1 54.47619%; /* 858/1575 */
+   }
+
+   &__content {
+      flex: 0 1 45.52381%; /* 717/1575 */
+   }
+
+   &__h3 {
+   }
+
+   &__title {
+   }
+
+   &__quote {
+   }
+
+   &__text {
+   }
+
+   &__btn {
+   }
+
+   &__advantages {
+   }
+}
+
+.advantages-about {
+
+   &__items {
+      display: flex;
+      justify-content: space-around;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+   }
+
+   &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include adClamp("gap", 29, 18);
+   }
+
+   &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 140px;
+      aspect-ratio: 1 / 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      &::before{
+         content: '';
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         top: 0;
+         z-index: -1;
+         background: url(../IMG/About/btn.png) 0 0 no-repeat;
+         opacity: 0.4;
+      }
+   }
+
+   &__title {
+      @include adClamp("font-size", 24, 18);
+      font-family: "italiana";
+   }
+}

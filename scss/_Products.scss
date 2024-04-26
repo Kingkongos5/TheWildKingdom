@@ -1,0 +1,227 @@
+.products {
+   position: relative;
+   &:before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -10;
+      background: url(../IMG/About/bg.png) 0 0 / 100% no-repeat;
+      opacity: 0.125;
+      filter: blur(1px);
+      transform: scaleX(-1)
+   }
+   &__container {
+      @include adClamp("padding-bottom", 169, 70);
+   }
+
+   &__begining {
+      @include adClamp("margin-bottom", 48, 24);
+   }
+
+   &__content {
+   }
+
+   &__h3 {
+   }
+
+   &__title {
+   }
+
+   &__text {
+   }
+
+   &__product {
+      @include adClamp("margin-bottom", 50, 70);
+   }
+
+   &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 8.5625rem;
+      color: $page-color;
+      overflow: hidden;
+      border: none;
+      margin: 0 auto;
+      &:after {
+         content: "";
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         top: 0;
+         z-index: -1;
+         background: url(../IMG/About/btn.png) 0 0 / 100% no-repeat;
+         opacity: 0.5;
+      }
+      @media (max-width: 467.98px) {
+         max-width: 290px;
+      }
+   }
+
+   &__items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      @include adClamp("column-gap", 50, 30, 1920, 1480);
+      @include adClamp("row-gap", 60, 40);
+   }
+
+   &__item {
+      @include adClamp("flex-basis", 350, 290, 1920, 1424);
+   }
+}
+
+.item-product {
+   position: relative;
+   transition: all 0.3s ease 0s;
+   @media (hover: hover) {
+      &:hover .item-product__add-content {
+         transition:
+            width 0.6s ease 0s,
+            height 0.6s ease 0s,
+            opacity 0.8s ease 0s;
+         opacity: 1;
+         pointer-events: all;
+      }
+   }
+
+   &__image {
+      @include adClamp("width", 350, 290, 1920, 1424);
+      @include adClamp("height", 350, 290, 1920, 1424);
+      border: 1px solid #9d875c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      @include adClamp("margin-bottom", 38, 22);
+      img {
+         filter: drop-shadow(10px 10px 10px rgba(60, 38, 12, 0.35));
+      }
+      &:before {
+         content: "";
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         top: 0;
+         z-index: -1;
+         opacity: 0.4;
+         background: url(../img/About/btn.png) 0 0 / 100% no-repeat;
+      }
+      &:after{
+         content: "";
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         top: 0;
+         z-index: -2;
+         background: #D9D9D9;
+      }
+   }
+
+   &__content {
+      display: flex;
+      justify-content: space-between;
+      @include adClamp("margin-bottom", 18, 10);
+   }
+
+   &__name {
+      font-family: "italiana";
+      text-transform: capitalize;
+      @include adClamp("font-size", 24, 18);
+      position: relative;
+      line-height: 1.2;
+      &:before {
+         content: "";
+         position: absolute;
+         width: 0%;
+         height: 1px;
+         bottom: -5px;
+         border-radius: 45px;
+         background: #222220;
+         transition: all 0.3s ease 0s;
+      }
+      &:hover:before {
+            transition: all 0.3s ease 0s;
+            width: 100%;
+            rotate: 0deg;
+         }
+   }
+
+   &__price {
+      @include adClamp("font-size", 24, 18);
+   }
+
+   &__rating {
+      display: flex;
+      gap: 10px;
+      @include adClamp("margin-top", 18, 10);
+   }
+
+   &__add-content {
+      transition:
+         width 0.5s ease 0s,
+         height 0.5s ease 0s,
+         opacity 0.3s ease 0s;
+      @media (min-width: 1023.98px) {
+         position: absolute;
+         @include adClamp("height", 350, 290, 1920, 1424);
+         @include adClamp("width", 350, 290, 1920, 1424);
+         opacity: 0;
+         pointer-events: none;
+         background: rgb(60, 38, 12, 0.6);
+         left: 0;
+         top: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         z-index: 0;
+      }
+   }
+
+   &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $page-color;
+      overflow: hidden;
+      border: none;
+      max-width: 10.875rem;
+      &:after {
+         content: "";
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         top: 0;
+         z-index: -1;
+         background: url(../IMG/About/btn.png) 0 0 / 100% no-repeat;
+         opacity: 1;
+         transition: all 0.45s ease 0s;
+         @media (max-width: 1023.98px) {
+            opacity: 0.7;
+         }
+      }
+      transition: all 0.3s ease 0s;
+      @media (hover: hover) {
+         &:hover {
+            transition: all 0.45s ease 0s;
+            opacity: 0.7;
+         }
+      }
+      @media (hover: none) {
+         &:active {
+            opacity: 0.4;
+            transition: all 0.45s ease 0s;
+         }
+      }
+      @media (max-width: 1023.98px) {
+         max-width: 100%;
+      }
+   }
+}

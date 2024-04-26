@@ -1,0 +1,248 @@
+.lock {
+   @media (max-width: 991.98px) {
+      overflow: hidden;
+   }
+}
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+   margin: 0px auto;
+   overflow: hidden;
+   @supports (overflow: clip) {
+      overflow: clip;
+   }
+   > main {
+      flex: 1 1 auto;
+   }
+
+   > * {
+      min-width: 0;
+   }
+}
+
+[class*="__container"] {
+   margin: 0 auto;
+   max-width: ($maxWidthContainer + ($padding * 2)) + px;
+   padding: 0px rem($padding);
+}
+
+[class*="-ibg"] {
+   position: relative;
+   img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+   }
+}
+
+[class*="-ibg-contain"] {
+   img {
+      object-fit: contain;
+   }
+}
+
+.btn {
+   padding: 0.625rem 1.875rem;
+   color: rgb(193, 171, 129);
+   font-weight: 300;
+   line-height: 156.25%;
+   border: 1px solid rgb(193, 171, 129);
+   border-radius: 50px;
+   transition: all 0.45s ease 0s;
+   background: transparent;
+   position: relative;
+   &:before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 100%;
+      left: 50%;
+      top: 0%;
+      z-index: -1;
+      border-radius: 50px;
+      transition: all 0.3s ease 0s;
+      background: rgb(43, 43, 40);
+   }
+   transition: all 0.3s ease 0s;
+   @media (hover: hover) {
+      &:hover {
+         transition: all 0.3s ease 0s;
+         color: #000;
+      }
+      &:hover:before {
+         transition: all 0.6s ease 0s;
+         background: rgb(193, 171, 129);
+         left: 0%;
+         top: 0%;
+         width: 100%;
+      }
+   }
+   @media (hover: none) {
+      &:active {
+         transition: all 0.3s ease 0s;
+         color: #000;
+      }
+      &:active:before {
+         transition: all 0.2s ease 0s;
+         background: rgb(193, 171, 129);
+         left: 0%;
+         top: 0%;
+         width: 100%;
+      }
+   }
+}
+
+.mousemove {
+   @media (min-width: 1023.98px) {
+      position: fixed;
+      z-index: 100;
+      width: 75px;
+      height: 75px;
+      border: 1px solid rgb(193, 171, 129);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      &.focus {
+         //transition: all .45s ease 0s;
+         width: 65px;
+         height: 65px;
+         border: 2px solid rgb(214, 149, 27);
+      }
+   }
+}
+
+.h3 {
+   color: $page-color;
+   line-height: 1.5625;
+   &--center {
+      text-align: center;
+   }
+}
+.title {
+   color: #9d875c;
+   font-family: "italiana";
+   @include adClamp("font-size", 48, 36);
+   &--center {
+      text-align: center;
+   }
+}
+
+.qoute {
+   font-style: italic;
+   color: $page-color;
+   line-height: 1.5625;
+}
+
+.text {
+   color: $page-color;
+   line-height: 1.5625;
+   max-width: 28.625rem;
+   &--center {
+      text-align: center;
+   }
+}
+
+.content {
+   display: flex;
+   flex-direction: column;
+   @include adClamp("gap", 20, 15);
+   .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 8.5625rem;
+      color: $page-color;
+      overflow: hidden;
+      border: none;
+      &:after {
+         content: "";
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         top: 0;
+         z-index: -1;
+         background: url(../IMG/About/btn.png) 0 0 / 100% no-repeat;
+         opacity: 0.5;
+      }
+      @media (max-width: 467.98px) {
+         max-width: 100%;
+      }
+   }
+   & .h3 {
+      text-transform: capitalize;
+   }
+   &-white {
+      .h3 {
+         color: #ffffff;
+      }
+      .qoute {
+         color: #ffffff;
+      }
+      .text {
+         color: #ffffff;
+      }
+      .btn {
+         &::after {
+            background: none;
+         }
+         padding: 0.625rem 1.875rem;
+         color: rgb(193, 171, 129);
+         font-weight: 300;
+         line-height: 156.25%;
+         border: 1px solid rgb(193, 171, 129);
+         border-radius: 50px;
+         transition: all 0.45s ease 0s;
+         background: transparent;
+         position: relative;
+         &:before {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            left: 50%;
+            top: 0%;
+            z-index: -1;
+            border-radius: 50px;
+            transition: all 0.3s ease 0s;
+            background: rgb(43, 43, 40);
+         }
+         transition: all 0.3s ease 0s;
+         @media (hover: hover) {
+            &:hover {
+               transition: all 0.3s ease 0s;
+               color: #000;
+            }
+            &:hover:before {
+               transition: all 0.6s ease 0s;
+               background: rgb(193, 171, 129);
+               left: 0%;
+               top: 0%;
+               width: 100%;
+            }
+         }
+         @media (hover: none) {
+            &:active {
+               transition: all 0.3s ease 0s;
+               color: #000;
+            }
+            &:active:before {
+               transition: all 0.2s ease 0s;
+               background: rgb(193, 171, 129);
+               left: 0%;
+               top: 0%;
+               width: 100%;
+            }
+         }
+      }
+   }
+   &--center {
+      align-items: center;
+   }
+}

@@ -1,0 +1,39 @@
+
+// Function ======================================
+
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+
+// Base__var =====================================
+
+$maxWidthContainer: 1575;
+$minWidthContainer: 320;
+$maxWidth: 1920;
+$minWidth: 320;
+$padding: 15;
+
+$background: rgb(239, 233 ,221);
+$page-color: #222220;
+$two-color: #C1AB81;
+$font-size: rem(16);
+$font-weight: 400;
+$font-family: "Montserrat";
+
+// Mixin =========================================
+
+@mixin adClamp($property, $maxSize, $minSize, $maxWidth: $maxWidth, $minWidth: $minWidth + 1) {
+
+   $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+   $yIntersection: -$minWidth * $slope + $minSize;
+   $flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
+   
+   $propertyValue: #{"clamp(" rem($minSize) "," $flyValue "," rem($maxSize) ")"};
+   
+   @if ($minSize > $maxSize) {
+      $propertyValue: #{"clamp(" rem($maxSize) "," $flyValue "," rem($minSize) ")"};
+   }
+
+   #{$property}: #{$propertyValue};
+}
