@@ -196,14 +196,18 @@
             width: 0%;
             height: 1px;
             bottom: -5px;
-            left: -10px;
             border-radius: 45px;
             background: rgb(193, 171, 129);
-            transition: all 0.45s ease 0s;
+            transition: width 0.45s ease 0s, transform 0.65s ease 0s;
          }
          &:hover:before {
             width: 100%;
             left: 0px;
+            transform: translate(0px, 0px);
+         }
+         &:not(:hover):before{
+            right: 0;
+            transform: translate(-5px, 0px);
          }
       }
    }

@@ -124,11 +124,15 @@
    &__map {
       @include adClamp("font-size", 20, 18);
       font-family: "italiana";
-      @media(max-width:767.98px){
-         &.active + .footer-nav__content{
-            .footer-nav__items{
-               @media(max-width:767.98px){
-                  transition: all .3s ease 0s;
+      position: relative;
+      @media (max-width: 767.98px) {
+         &.active + .footer-nav__content {
+            .footer-nav__items {
+               @media (max-width: 767.98px) {
+                  transition:
+                     height 0.3s ease 0s,
+                     font-size 0.3s ease 0s,
+                     padding-left 0.3s ease 0s;
                   overflow: hidden;
                   height: 100%;
                   font-size: 16px;
@@ -136,11 +140,26 @@
                   padding-left: 5px;
                   @include adClamp("gap", 20, 15);
                }
-               .footer-nav__item{
+               .footer-nav__item {
                   padding: 5px;
-                  transition: all .3s ease 0s;
+                  transition: all 0.1s ease 0s;
                }
             }
+         }
+         &.active:after {
+            transition: all 0.6s ease 0s;
+            transform: scaleX(-1);
+         }
+         &:after {
+            content: "";
+            position: absolute;
+            width: 28px;
+            height: 1.75rem;
+            right: 0;
+            top: 0;
+            background: url(../img/Services/arrow.svg) top / 100% no-repeat;
+            rotate: 90deg;
+            transition: all 0.6s ease 0s;
          }
          padding: 5px 0px;
       }
@@ -150,15 +169,14 @@
       display: flex;
       margin-top: 15px;
       @include adClamp("margin-bottom", 39, 12);
-      
    }
 
    &__items {
       display: flex;
       @include adClamp("gap", 46, 25);
       flex-wrap: wrap;
-      @media(max-width:767.98px){
-         transition: all .3s ease 0s;
+      @media (max-width: 767.98px) {
+         transition: all 0.3s ease 0s;
          width: 100%;
          overflow: hidden;
          height: 0%;
@@ -170,8 +188,8 @@
    }
 
    &__item {
-      @media(max-width:767.98px){
-         transition: all .3s ease 0s;
+      @media (max-width: 767.98px) {
+         transition: all 0.1s ease 0s;
          background: #3b3b38;
          padding: 0px;
          border-radius: 5px;
@@ -181,8 +199,35 @@
    &__link {
       font-weight: 300;
       line-height: 1.5625;
-      @media(max-width:767.98px){
+      @media (max-width: 767.98px) {
          display: flex;
+      }
+      transition: all 0.3s ease 0s;
+      @media (hover: hover) {
+         position: relative;
+         &:before {
+            content: "";
+            position: absolute;
+            height: 1px;
+            bottom: -5px;
+            border-radius: 45px;
+            background: #c1ab81;
+            transition: all 0.45s ease 0s;
+         }
+         &:hover {
+            &:before {
+               left: 0px;
+               transition: all 0.45s ease 0s;
+               width: 100%;
+               rotate: 0deg;
+               transform: translate(0px, 0px);
+            }
+         }
+         &:not(:hover):before{
+            right: -5px;
+            width: 0%;
+            transform: translate(-5px, 0px);
+         }
       }
    }
 
@@ -229,13 +274,16 @@
       transform: translate(0%, -15%);
       transition: all 0.45s ease 0s;
       line-height: 187.5%; /* 30/16 */
+      cursor: text;
    }
 
    &__input {
-      max-width: 13.8125rem;
+      max-width: 15.0625rem;
       padding: 7px 0px;
+      font-size: 0.875rem;
+      font-weight: 300;
       background: #222220;
-      &:focus + .form-footer__input-label {
+      &.input + .form-footer__input-label {
          transition: all 0.3s ease 0s;
          transform: translate(0%, -70%);
       }
